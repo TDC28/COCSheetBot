@@ -154,7 +154,7 @@ def run(client, token, filename):
 
         await ctx.send(links)
 
-    if TOKEN is not None:
+    if TOKEN is not None or TOKEN != "[The token required to use the bot goes here]":
         bot.run(TOKEN)
 
     else:
