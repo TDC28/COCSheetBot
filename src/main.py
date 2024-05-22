@@ -23,7 +23,7 @@ def run(client, token, filename):
         """
         clan = Clan(clantag, client)
         clan.get_data()
-        clan.updatesheet(filename)
+        clan.update_sheet(filename)
 
         await ctx.send("**CWL 2024 Season**")
         await ctx.send(
@@ -154,7 +154,7 @@ def run(client, token, filename):
 
         await ctx.send(links)
 
-    if TOKEN is not None or TOKEN != "[The token required to use the bot goes here]":
+    if TOKEN is not None:
         bot.run(TOKEN)
 
     else:

@@ -13,9 +13,14 @@ class Clan:
         self.member_tags = []
         self.wars = []
 
-        self.league_group = self.client.leaguegroup(self.clantag)
+        self.league_group = self.client.league_group(self.clantag)
 
     def clan_in_war(self, wartag: str) -> bool:
+        """
+        clan_in_war(wartag) produces True if the clan is participating in
+            the war with a war tag wartag, else False.
+        clan_in_war: Clan str -> bool
+        """
         war = self.client.war(wartag)
         clans = (war["clan"]["tag"], war["opponent"]["tag"])
 
@@ -23,7 +28,12 @@ class Clan:
             war == {"state": "notInWar", "teamSize": 0} or self.clantag not in clans
         )
 
-    def get_data(self):
+    def get_data(self) -> None:
+        """
+        get_data() populates the lists in the Clan using data from Clash of
+            Clans API.
+        get_data: Clan -> None
+        """
         for group in self.league_group["rounds"]:
             for wartag in group["warTags"]:
                 if self.clan_in_war(wartag):
@@ -57,7 +67,13 @@ class Clan:
                     self.stars.append("Missed Hit")
                     self.des.append(0)
 
-    def updatesheet(self, filename):
+        return None
+
+    def update_sheet(self, filename: str) -> None:
+        """
+        update_sheet(filename) edits the Excel spreadsheet.
+        update_sheet: Clan str -> None
+        """
         wb = load_workbook(filename)
         ws = wb[self.wars[0]["startTime"][4:6]]
 
@@ -91,3 +107,4 @@ class Clan:
         ws["W101"] = "=SUM(W3:W" + str(len(list(set(self.member_tags))) + 2) + ")"
 
         wb.save()
+        return None
