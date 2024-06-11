@@ -106,5 +106,5 @@ class Clan:
         ws["V101"] = "=SUM(V3:V" + str(len(list(set(self.member_tags))) + 2) + ")"
         ws["W101"] = "=SUM(W3:W" + str(len(list(set(self.member_tags))) + 2) + ")"
 
-        wb.save()
+        wb.save(filename)
         return None

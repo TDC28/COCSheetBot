@@ -7,6 +7,7 @@ from openpyxl import load_workbook
 import os, discord, logging, json
 
 
+# TODO: Rewrite docstrings for all functions and try to setup autosuggestions from Discord
 def run(client, token, filename):
     intents = discord.Intents.all()
 
