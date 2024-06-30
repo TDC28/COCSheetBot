@@ -168,6 +168,6 @@ if __name__ == "__main__":
     API_KEY = str(os.environ.get("API_KEY"))
     TOKEN = str(os.environ.get("TOKEN"))
     client = Client(API_KEY)
-    filename = "CWL2024.xlsx"
+    filename = "CWL2024.xlsx" # TODO: Rename this to the filename you chose for your file
 
     run(client, TOKEN, filename)

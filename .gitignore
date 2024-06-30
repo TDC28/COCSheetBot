@@ -1,7 +1,9 @@
 .venv
 .env
 .DS_STORE
+
 __pycache__
+
 CWL2024.xlsx
 ~*.xlsx
 *.json
